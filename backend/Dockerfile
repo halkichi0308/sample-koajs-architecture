@@ -1,20 +1,19 @@
-#backend 
-FROM node:8-alpine
+FROM node:10-stretch
 
-ARG APP_NAME
-ARG SERVER_ROOT
+# io color scheme
+#ENV TERM "xterm-256color"
+COPY .bashrc /root/.bashrc
 
-ENV APP_NAME=$APP_NAME \
-    SERVER_ROOT=$SERVER_ROOT
+# Minimal commands
+RUN apt update && \
+    apt install -y curl vim
 
-#= Used when building at ``$docker-compose build`` this line.
-#WORKDIR /usr/src
-#RUN npm install -g express express-generator && \
-#    express $SERVER_ROOT
-#WORKDIR /usr/src/$SERVER_ROOT
+# workdir setting
+WORKDIR /opt/api
 
-COPY package*.json ./
+# yarn settings
+#COPY volumes/*.json ./
+#RUN export PATH=$PATH:/opt/api/node_modules/.bin
+#RUN yarn install
 
-RUN npm install
-
-CMD ["npm", "start"]
+#CMD ["yarn", "start"]
