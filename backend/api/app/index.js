@@ -1,10 +1,13 @@
 var Koa = require('koa');
 var Router = require('koa-router');
-import { connectDB } from "../util/dbs"
+var Connect = require('@util/db');
+
+import { connectDB } from "../db/dbs"
 
 var app = new Koa();
 var router = new Router();
 
+/* もっとスマートにしたい */
 router.get('/', (ctx, next) => {
   // ctx.router available
   ctx.body = 'Hello World!!';
@@ -15,12 +18,14 @@ router.get('/users', (ctx, next)=>{
 router.get('/users/:id', (ctx, next)=>{
   ctx.body = `thx! We got ${ctx.params.id}.`;
 });
+
+/* 別ファイルにしたい */
 router.get('/db/:id', (ctx, next)=>{
   var mysql = require('mysql');
   var connection = mysql.createConnection({
     host: 'db',
     user: 'root',
-    password: 'pass'
+    password: 'passwd'
   })
   connection.connect((err)=>{
     if(err){

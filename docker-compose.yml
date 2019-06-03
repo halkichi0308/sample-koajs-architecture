@@ -1,43 +1,51 @@
 version: "3"
 services:
-  # express
-  express:
-    container_name: 'backend'
-    build:
-      context: './backend'
-      args: 
-        APP_NAME: $APP_NAME
-        SERVER_ROOT: SERVER_ROOT
-    env_file:
-      - '.env'
-    volumes:
-      - './backend:/usr/src'
-    ports:
-      - '3000:3000'
-    tty: true
-    stdin_open: true
-  # Vue
-  vuejs:
+
+  # React 
+  react:
     container_name: 'frontend'
     build:
       context: './frontend'
       args: 
         APP_NAME: $APP_NAME
+        CLIENT_ROOT: $CLIENT_ROOT
     env_file:
       - '.env'
     volumes:
-      - './frontend:/app'
+      - './frontend:/usr/src'
     ports:
-      - '8080:8080'
+      - '18080:3000'
     tty: true
     stdin_open: true
-  #  links:
+    links:
+      - db   
+  # koa
+  koa:
+    container_name: 'backend'
+    build:
+      context: './backend'
+      args: 
+        APP_NAME: $APP_NAME
+        SERVER_ROOT: $SERVER_ROOT
+    env_file:
+      - '.env'
+    volumes:
+      - './backend:/api/app'
+    ports:
+      - '18081:3000'
+    tty: true
+    stdin_open: true
+    links:
+      - db
 
-  #    - mysql-server
-  # DB
-  #mysql-server:
-  #  image: mysql:5.6
-  #  volumes:
-  #   - './sql:/docker-entrypoint-initdb.d'
-  #  environment:
-  #    MYSQL_ROOT_PASSWORD: 'pass'
+  db:
+    container_name: mysql
+    image: mysql:5.6
+    ports:
+      - '3306:3306'
+    env_file:
+      - '.env'
+    volumes:
+      - './backend/sql:/docker-entrypoint-initdb.d'
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_PASS

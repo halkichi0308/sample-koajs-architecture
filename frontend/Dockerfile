@@ -8,16 +8,14 @@ ARG CLIENT_ROOT
 ENV APP_NAME=$APP_NAME \
     CLIENT_ROOT=$CLIENT_ROOT
 
-RUN npm install -g http-server && \
-    npm install -g @vue/cli
+RUN yarn add http-server && \
+    yarn add --save-dev webpack webpack-cli webpack-dev-server
 
-WORKDIR /app
+WORKDIR $CLIENT_ROOT
 
-COPY package*.json ./
+COPY *.json ./
 
-RUN npm install
-
-COPY . .
+RUN yarn install
 
 #RUN npm run build
 
