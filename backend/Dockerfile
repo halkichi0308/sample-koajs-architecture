@@ -14,7 +14,7 @@ RUN echo hoge$SERVER_ROOT
 WORKDIR $SERVER_ROOT
 
 # yarn settings
-COPY api/*.json ./
+#COPY api/*.json ./
 RUN export PATH=$PATH:/opt/api/node_modules/.bin
 RUN yarn install
 
