@@ -1,1 +1,3 @@
-console.log("Hello, typeScript!")
+export function getLibs(name: String){
+  return name;
+}

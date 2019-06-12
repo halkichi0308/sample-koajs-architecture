@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "node dist/app/app.js",
-    "build": "webpack-dev-server"
+    "build": "webpack-dev-server",
+    "tsc": "node_modules/typescript/bin/tsc"
   },
   "dependencies": {
     "koa": "^2.7.0",
@@ -34,6 +35,6 @@
     "typescript-transform-paths": "^1.1.3"
   },
   "_moduleAliases": {
-    "@util": "util"
+    "@lib": "src/lib"
   }
 }
