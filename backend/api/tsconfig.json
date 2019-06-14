@@ -13,7 +13,6 @@
     "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
     "outDir": "./dist",                        /* Redirect output structure to the directory. */
-    // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
     // "removeComments": true,                /* Do not emit comments to output. */
@@ -44,7 +43,8 @@
     "paths": {
       "@lib/*": [ "src/lib/*" ],
       "@routes/*": [ "src/routes/*" ],
-      "@user/*": [ "src/user/*" ]
+      "@user/*": [ "src/user/*" ],
+      "@controllers/*": [ "src/controllers/*"]
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
@@ -68,9 +68,9 @@
     ]
   },
   "include": [
-    "./**/*.ts", "./**/**/*.ts"
+    "./src/*.ts", "./src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

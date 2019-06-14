@@ -9,20 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const routing_controllers_1 = require("routing-controllers");
-let IndexController = class IndexController {
-    user() {
-        return 'This is user Controller';
+const typedi_1 = require("typedi");
+let UserRepository = class UserRepository {
+    constructor() {
+    }
+    findAll() {
+        return [
+            { id: '234', name: 'kkk' },
+            { id: '345', name: 'ttt' },
+            { id: '456', name: 'nnn' },
+        ];
+    }
+    findById(id) {
+        return { id, name: 'name' };
     }
 };
-__decorate([
-    routing_controllers_1.Get('/user'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], IndexController.prototype, "user", null);
-IndexController = __decorate([
-    routing_controllers_1.JsonController()
-], IndexController);
-exports.default = IndexController;
-//# sourceMappingURL=route.js.map
+UserRepository = __decorate([
+    typedi_1.Service(),
+    __metadata("design:paramtypes", [])
+], UserRepository);
+exports.default = UserRepository;
+//# sourceMappingURL=repository.js.map

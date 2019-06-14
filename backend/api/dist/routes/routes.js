@@ -25,4 +25,4 @@ IndexController = __decorate([
     routing_controllers_1.JsonController()
 ], IndexController);
 exports.default = IndexController;
-//# sourceMappingURL=route.js.map
+//# sourceMappingURL=routes.js.map

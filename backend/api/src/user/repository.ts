@@ -5,8 +5,8 @@ import { Service } from 'typedi'
 export default class UserRepository {
 
   constructor() {
+    
   }
-
   findAll() {
     return [
       { id: '234', name: 'kkk' },

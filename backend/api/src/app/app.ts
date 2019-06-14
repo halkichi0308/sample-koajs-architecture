@@ -1,8 +1,9 @@
 import "reflect-metadata"; // this shim is required
 import {createKoaServer} from "routing-controllers";
-import {UserController} from "@user/UserController";
+import {UserController} from "@controllers/UserController";
+//import {UserController} from "@controllers/JsonController";
 import {getLibs} from "@lib/lib";
-import '@routes/routes'
+//import {IndexController} from '@routes/routes'
 
 // creates koa app, registers all controller routes and returns you koa app instance
 const app = createKoaServer({
