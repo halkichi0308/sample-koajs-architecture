@@ -1,4 +1,4 @@
-FROM node:12.4.0-stretch
+FROM node:11.15.0-stretch
 
 ARG SERVER_ROOT
 # io color scheme
