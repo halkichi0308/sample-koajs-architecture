@@ -7,8 +7,7 @@ test('User情報が取得できているか', t =>{
     /* process.env.APP_NAME とすれば .envで定義したFQDNを取得できる*/
     url: "http://localhost:3000/users/all",
     qs: {
-      testkey: "testvalue",
-      hoge: "hoge"
+      testkey: "testvalue"
     }
   };
   
