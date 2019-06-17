@@ -1,6 +1,6 @@
 
-#front end 
-FROM node:lts-alpine
+#frontend 
+FROM node:12.4.0-stretch
 
 ARG APP_NAME
 ARG CLIENT_ROOT

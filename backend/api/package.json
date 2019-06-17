@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/app/app.js",
-    "build": "webpack-dev-server",
-    "test": "npx ava",
-    "tsc": "node_modules/typescript/bin/tsc",
-    "ttsc": "node_modules/ttypescript/bin/tsc"
+    "start": "node ./dist/bootstrap.js",
+    "dev": "ts-node --compiler ttypescript ./src/bootstrap.ts",
+    "test": "npx ava --verbose",
+    "test:watch": "npx ava --verbose --watch",
+    "tsc": "npx tsc",
+    "ttsc": "npx ttsc",
+    "ttsc:watch": "npx ttsc -w"
   },
   "dependencies": {
     "koa": "^2.7.0",
@@ -18,7 +20,8 @@
     "koa-router": "^7.4.0",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.7.7",
-    "typedi": "^0.8.0"
+    "typedi": "^0.8.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/koa": "^2.0.48",
@@ -26,6 +29,7 @@
     "@types/koa-json": "^2.0.18",
     "@types/koa-multer": "^1.0.0",
     "@types/koa-router": "^7.0.40",
+    "@types/uuid": "^3.4.4",
     "ava": "^2.1.0",
     "request": "^2.88.0",
     "ts-node": "^8.2.0",

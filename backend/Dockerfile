@@ -1,4 +1,4 @@
-FROM node:10-stretch
+FROM node:12.4.0-stretch
 
 ARG SERVER_ROOT
 # io color scheme
@@ -13,7 +13,6 @@ RUN apt update && \
 WORKDIR $SERVER_ROOT
 
 # yarn settings
-#COPY api/*.json ./
 RUN yarn install
 
-#CMD ["yarn", "start"]
+CMD ["yarn", "start"]

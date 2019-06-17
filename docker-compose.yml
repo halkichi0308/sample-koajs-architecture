@@ -17,8 +17,7 @@ services:
       - '18080:3000'
     tty: true
     stdin_open: true
-    links:
-      - db   
+
   # koa
   koa:
     container_name: 'backend'
@@ -31,7 +30,7 @@ services:
       - '.env'
     volumes:
       - ./backend/api:/opt/api
-      - /opt/api/node_modules
+    #  - /opt/api/node_modules
     ports:
       - '18081:3000'
     tty: true
