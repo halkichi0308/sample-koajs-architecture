@@ -30,7 +30,7 @@ services:
       - '.env'
     volumes:
       - ./backend/api:/opt/api
-    #  - /opt/api/node_modules
+    #  - /opt/api/node_modules:
     ports:
       - '18081:3000'
     tty: true
