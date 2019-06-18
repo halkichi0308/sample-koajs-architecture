@@ -1,6 +1,6 @@
 
 #frontend 
-FROM node:11.15.0-stretch
+FROM node:12.4.0-stretch
 
 ARG APP_NAME
 ARG CLIENT_ROOT
